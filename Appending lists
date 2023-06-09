@@ -1,0 +1,8 @@
+FN = ["Kavya", "Sai", "Shreya", "Sindhu"]
+LN = ["D","K","B","Y"]
+FullNames = []
+
+for i in range(len(FN)):
+  Full_Name = FN[i] + " " + LN[i]
+  FullNames.append(Full_Name)
+print(FullNames)
