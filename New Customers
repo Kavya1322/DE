@@ -1,0 +1,30 @@
+CREATE TABLE customerss (
+    ID int,
+    Name varchar(25),
+    Store_ID int,
+    Location varchar(10)
+);
+
+-- Insert sample data into the customers table
+INSERT INTO customerss (ID, Name, Store_ID, Location)
+VALUES
+    (111, 'Mike',  101, 'IL'),
+    (222, 'Rose',  101, 'IL'),
+    (333, 'Sameul',  101, 'IL'),
+    (444, 'Lui',  101, 'IL'),
+    (111, 'Mike',  201, 'TX'),
+    (222, 'Rose',  201, 'TX'),
+    (333, 'Sameul',  201, 'TX'),
+    (555, 'Alexa',  201, 'TX'),
+    (666, 'Susan',  201, 'TX'),
+    (777, 'Alyssa',  201, 'TX');
+
+-- Retrieve new customers at Location B
+SELECT *
+FROM customerss
+WHERE Location = 'TX'
+    AND (Name, ID) NOT IN (
+        SELECT Name, ID
+        FROM customerss
+        WHERE Location = 'IL'
+    )
